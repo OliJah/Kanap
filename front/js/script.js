@@ -1,7 +1,7 @@
 //---------JE FAIS APPEL A L'API QUI CONTIENT LES PRODUITS---------
 
 //je demande à fetch de récupérer les données depuis l'url de l'API : 
-fetch('http://localhost:3000/api/products') 
+fetch('http://localhost:3000/api/products')
     // première promesse .then qui va récupérer la réponse (en staged)
     // en la transformant en json pour faciliter l'intérprétation par le navigateur :
   .then(res => res.json())
