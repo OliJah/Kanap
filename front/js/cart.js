@@ -7,12 +7,12 @@
 // RECUPERER LES PRODUITS STOCKES DANS LE LOCALSTORAGE   //
 
 let productInLocalStorage =  JSON.parse(localStorage.getItem('product'));
-console.log('voici les produits dans le localStorage', productInLocalStorage);
+  console.log(productInLocalStorage);
 
 // AFFICHER LES PRODUITS DU PANIER
 
  // je sélectionne la partie html concernée par la modification
- let cartAndFormContainer = document.getElementById('cartAndFormContainer');
+ const cartAndFormContainer = document.getElementById('cartAndFormContainer');
  console.log(cartAndFormContainer);
 
  // si le panier est vide : afficher 'le panier est vide'
@@ -58,3 +58,7 @@ else{
 }
 }
 
+
+
+let delete_Item = document.querySelectorAll('.deleteItem');
+console.log('.deleteItem');
