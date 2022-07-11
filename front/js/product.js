@@ -90,14 +90,12 @@ addToCart.addEventListener('click',(event) => {
   // Création d'alertes en fonction du nombre d'article choisi et envoyé au panier
 
   if(selectQuantity.value == 1){
-    if(window.confirm(title.textContent + ' a bien été ajouté. Souhaitez vous consultez votre panier?')) {
-      window.open("cart.html");
+    if(alert(title.textContent + ' a bien été ajouté.')) {
     }
   
   
   } else if (selectQuantity.value > 1){
-    if (window.confirm(selectQuantity.value + " " +title.textContent + ' ont bien été ajoutés. Souhaitez vous consultez votre panier?')) {
-      window.open("cart.html");
+    if (alert(selectQuantity.value + " " +title.textContent + ' ont bien été ajoutés.')) {
     }
   } else {
     alert("Veuillez selectionner le nombre d'article souhaité.");
