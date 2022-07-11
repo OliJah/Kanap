@@ -64,10 +64,19 @@ addToCart.addEventListener('click',(event) => {
    // je déclare une variable productInLocalStorage 
   // dans laquelle je mets les clés+valeurs dans le local storage
   // JSON.parse permet de convertir les données au format JSON en objet JavaScript
-  let productInLocalStorage =  JSON.parse(localStorage.getItem('product'));
+  let productInLocalStorage = JSON.parse(localStorage.getItem('product'));
   console.log(productInLocalStorage);
+
+  // s'il y a dejà des produits d'enregistré dans le localstorage
+  if(productInLocalStorage){
+
+  }
+
+  // s'il n'y a pas de produit d'enregistré, on les ajoutes
+
   // j'ajoute les produits sélectionnés dans le localStorage
-  const addProductLocalStorage = () => {
+  else
+  productInLocalStorage = []
   // je récupère la sélection de l'utilisateur dans le tableau de l'objet :
   // on peut voir dans la console qu'il y a les données,
   // mais pas encore stockées dans le storage à ce stade
@@ -76,9 +85,7 @@ addToCart.addEventListener('click',(event) => {
   // JSON.stringify permet de convertir les données au format JavaScript en JSON 
   // vérifier que key et value dans l'inspecteur contiennent bien des données
   localStorage.setItem('product', JSON.stringify(productInLocalStorage));
-  console.log(addProductLocalStorage);
-  }
-
+  console.log(productInLocalStorage);
 
   if(selectQuantity.value == 1){
     if(window.confirm(title.textContent + ' a bien été ajouté. Souhaitez vous consultez votre panier?')) {
@@ -94,8 +101,7 @@ addToCart.addEventListener('click',(event) => {
     alert("Veuillez selectionner le nombre d'article souhaité.");
   }
 
- });
+});
 
 // Création d'alertes en fonction du nombre d'article choisi et envoyé au panier
-
 
