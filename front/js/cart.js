@@ -68,12 +68,12 @@ function deleteArticle() {
   const deleteItem = document.querySelectorAll(".deleteItem");
   console.log("Bouton Supprimer", deleteItem);
 
-  for (let j = 0; j < deleteItem.length; j++) {
-    deleteItem[j].addEventListener("click", (event) => {
+  for (let m = 0; m < deleteItem.length; m++) {
+    deleteItem[m].addEventListener("click", (event) => {
       event.preventDefault();
 
       // enregistrer l'id séléctionné par le bouton supprimer
-      let deleteId = productInLocalStorage[j].id;
+      let deleteId = productInLocalStorage[m].id;
 
       // supprimer l'élément cliqué par le bouton supprimer
       productInLocalStorage = productInLocalStorage.filter(
@@ -94,3 +94,42 @@ deleteArticle();
 
 
 // J'affiche le total d'article et le coût en € 
+// TOTAL DES ARTICLES  
+
+function totalArticles() {
+  let totalItems = 0;
+  for (k in productInLocalStorage) {
+    const newQuantity = parseInt(productInLocalStorage[k].quantity, 10);
+    totalItems += newQuantity;
+  }
+  return totalItems;
+
+}
+const totalQuantity = document.getElementById('totalQuantity');
+totalQuantity.textContent = totalArticles();
+
+// TOTAL DU PRIX 
+
+
+function priceAmount () {
+const totalPriceCalculation = [];
+
+// Chercher le prix 
+
+for (l = 0; l < productInLocalStorage.length; l++) {
+  const cartAmount = productInLocalStorage[l].price * productInLocalStorage[l].quantity;
+totalPriceCalculation.push(cartAmount);
+const reduce = (previousValue, currentValue) => previousValue + currentValue;
+total = totalPriceCalculation.reduce(reduce);
+
+
+}
+
+// Additionner les prix contenu dans la variable totalPriceCalculation
+
+const totalPrice = document.getElementById('totalPrice');
+totalPrice.textContent = total;
+
+console.log('Prix final', totalPriceCalculation);
+}
+priceAmount();

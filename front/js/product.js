@@ -87,6 +87,8 @@ addToCart.addEventListener('click',(event) => {
   localStorage.setItem('product', JSON.stringify(productInLocalStorage));
   console.log(productInLocalStorage);
 
+  // Création d'alertes en fonction du nombre d'article choisi et envoyé au panier
+
   if(selectQuantity.value == 1){
     if(window.confirm(title.textContent + ' a bien été ajouté. Souhaitez vous consultez votre panier?')) {
       window.open("cart.html");
@@ -103,5 +105,5 @@ addToCart.addEventListener('click',(event) => {
 
 });
 
-// Création d'alertes en fonction du nombre d'article choisi et envoyé au panier
+
 
