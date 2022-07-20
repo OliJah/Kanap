@@ -54,12 +54,12 @@ addToCart.addEventListener('click',(event) => {
     alt: imageAlt,
     name: title.textContent,
     price: price.textContent,
-    color: colors.value,
-    quantity: quantity.value,
     color: selectColors.value,
     quantity: selectQuantity.value,
   };
   console.log(selection);
+  
+
 
    // je déclare une variable productInLocalStorage 
   // dans laquelle je mets les clés+valeurs dans le local storage
@@ -75,8 +75,7 @@ addToCart.addEventListener('click',(event) => {
   // s'il n'y a pas de produit d'enregistré, on les ajoutes
 
   // j'ajoute les produits sélectionnés dans le localStorage
-  else
-  productInLocalStorage = []
+  const addProductLocalStorage = () => {
   // je récupère la sélection de l'utilisateur dans le tableau de l'objet :
   // on peut voir dans la console qu'il y a les données,
   // mais pas encore stockées dans le storage à ce stade
@@ -86,6 +85,7 @@ addToCart.addEventListener('click',(event) => {
   // vérifier que key et value dans l'inspecteur contiennent bien des données
   localStorage.setItem('product', JSON.stringify(productInLocalStorage));
   console.log(productInLocalStorage);
+  }
 
   // Création d'alertes en fonction du nombre d'article choisi et envoyé au panier
 
@@ -101,7 +101,32 @@ addToCart.addEventListener('click',(event) => {
     alert("Veuillez selectionner le nombre d'article souhaité.");
   }
 
+
+  let update = false;
+  
+  // s'il y a des produits enregistrés dans le localStorage
+  if (productInLocalStorage) {
+  // verifier que le produit ne soit pas deja dans le localstorage/panier
+  // avec la couleur
+   productInLocalStorage.forEach (function (productOk, key) {
+    if (productOk.id == newID && productOk.color == selectColors.value) {
+      productInLocalStorage[key].quantity = parseInt(productOk.quantity) + parseInt(selectQuantity.value);
+      localStorage.setItem('product', JSON.stringify(productInLocalStorage));
+      update = true;
+    }
+  });
+
+  //
+    if (!update) {
+    addProductLocalStorage();
+    }
+  }
+
+  // s'il n'y a aucun produit enregistré dans le localStorage 
+  else {
+    // je crée alors un tableau avec les éléments choisi par l'utilisateur
+    productInLocalStorage = [];
+    addProductLocalStorage();
+  }
 });
-
-
 
