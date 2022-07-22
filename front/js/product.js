@@ -68,9 +68,7 @@ addToCart.addEventListener('click',(event) => {
   console.log(productInLocalStorage);
 
   // s'il y a dejà des produits d'enregistré dans le localstorage
-  if(productInLocalStorage){
-
-  }
+  
 
   // s'il n'y a pas de produit d'enregistré, on les ajoutes
 

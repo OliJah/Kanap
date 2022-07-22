@@ -30,3 +30,4 @@ fetch('http://localhost:3000/api/products')
       // qui permet de directemet combiner des variables et des clés dans un objet ou tableau
     }
 }
+
